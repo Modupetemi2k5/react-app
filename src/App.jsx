@@ -6,7 +6,7 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="weather-app">
-      <div children="container">
+      
         <h1>Weather-App</h1>
         <Weather />
 
@@ -21,13 +21,14 @@ function App() {
               {" "}
               Modupetemi2k5
             </a>
+            open sourced on
             <a href="netlify" target="_blank" rel="noreferrer">
               {" "}
-              open sourced on Netlify
+              Netlify
             </a>
           </p>
         </footer>
-      </div>
+      
     </div>
   );
 }

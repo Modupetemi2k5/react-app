@@ -1,0 +1,35 @@
+li {
+    list-style: none;
+}
+
+.searchinput {
+    padding-left: 220px;
+}
+
+.submitinput {
+    padding-left: 40px;
+}
+
+.des-dat {
+    margin-top: 20px;
+}
+
+.row {
+    margin: 0 20px;
+}
+
+.temp {
+    font-size: 64px;
+}
+
+.cent {
+    font-size: 35px;
+    position: relative;
+    top: -25px;
+}
+
+.deg {
+    font-size: 25px;
+    position: relative;
+    top: -25px;
+}
