@@ -1,11 +1,10 @@
 import React from "react";
-import axios from "axios";
-import "./node_modules/bootstrap/scss/variables";
+import "bootstrap/dist/css/bootstrap.css";
+import "./Weather.css";
 
 export default function Weather() {
   return (
     <div className="weatherf">
-      <h1> Weather-App</h1>
       <form>
         <input
           type="search"
@@ -24,8 +23,7 @@ export default function Weather() {
         </ul>
         <div className="row">
           <div className="col-6">⛅️8°</div>
-        </div>
-        <div className="row">
+
           <div className="col-6">
             <ul>
               <li>precipitation:15%</li>
