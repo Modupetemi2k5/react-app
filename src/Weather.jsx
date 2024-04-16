@@ -11,7 +11,7 @@ export default function Weather() {
   let [description, setDescription] = useState("");
   let [icon, setIcon] = useState("");
   let [city, setCity] = useState("");
-
+  let [date, setDate] = useState;
   function getWeather(response) {
     console.log(response.data);
     setTemperature(response.data.temperature.current);
