@@ -1,60 +1,85 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Weather.css";
-
+import axios from "axios";
 export default function Weather() {
-  return (
-    <div className="weatherf">
-      <form>
-        <div className="row">
-          <div className="col-9">
-            <input
-              type="search"
-              placeholder="enter-city"
-              className="searchinput"
-            />
+  let [ready, setReady] = useState("false");
+  let [temperature, setTemperature] = useState("");
+  let [humidity, setHumidity] = useState("");
+  let [precipitation, setPrecipitation] = useState("");
+  let [wind, setWind] = useState("");
+  let [description, setDescription] = useState("");
+  let [icon, setIcon] = useState("");
+  let [city, setCity] = useState("");
+
+  function getWeather(response) {
+    console.log(response.data);
+    setTemperature(response.data.temperature.current);
+    setHumidity(response.data.temperature.humidity);
+    setDescription(response.data.condition.description);
+    setPrecipitation();
+    setWind(response.data.wind.speed);
+    setIcon(<img alt="icon" src={response.data.condition.icon_url} />);
+    setCity();
+    setReady(true);
+  }
+
+  if (ready) {
+    return (
+      <div className="weatherf">
+        <form>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="enter-city"
+                className="searchinput"
+              />
+            </div>
+            <div className="col-3">
+              <input
+                type="submit"
+                value="search"
+                className="btn btn-primary submitinput"
+              />
+            </div>{" "}
           </div>
-          <div className="col-3">
-            <input
-              type="submit"
-              value="search"
-              className="btn btn-primary submitinput"
-            />
-          </div>{" "}
-        </div>
-      </form>
+        </form>
 
-      <div className="des-dat">
-        {" "}
-        <h2>New York</h2>
-        <p>
-          <ul>
-            <li> Wednesday 7:00</li>
-            <li>Mostly cloudy</li>
-          </ul>
-        </p>
-      </div>
-
-      <div className="row">
-        <div className="col-6">
-          <img
-            src="https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/sun-behind-cloud.png"
-            alt="mostly-cloudy"
-            width="60pv"
-          />{" "}
-          <span className="temp">8</span>
-          <span className="deg">°</span>
-          <span className="cent">c</span>
+        <div className="des-dat">
+          {" "}
+          <h2>{city}</h2>
+          <p>
+            <ul>
+              <li> Wednesday 7:00</li>
+              <li>Descpription:{description}</li>
+            </ul>
+          </p>
         </div>
 
-        <div className="col-6">
-          <ul>
-            <li>precipitation:15%</li>
-            <li>Humidity:72%</li>
-            <li>Wind:13km/hr</li>
-          </ul>
+        <div className="row">
+          <div className="col-6">
+            <img src={icon} alt={description} width="60pv" />
+            <span className="temp">{temperature}</span>
+            <span className="deg">°</span>
+            <span className="cent">c</span>
+          </div>
+
+          <div className="col-6">
+            <ul>
+              <li>Precipitation:{precipitation}</li>
+              <li>Humidity:{humidity}</li>
+              <li>Wind:{wind}</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let city = "new york";
+    let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(getWeather);
+    return "loading.....";
+  }
 }
