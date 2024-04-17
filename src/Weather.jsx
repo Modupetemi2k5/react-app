@@ -11,7 +11,7 @@ export default function Weather() {
   let [description, setDescription] = useState("");
   let [icon, setIcon] = useState("");
   let [city, setCity] = useState("");
-  let [date, setDate] = useState;
+  let [date, setDate] = useState("");
   function getWeather(response) {
     console.log(response.data);
     setTemperature(response.data.temperature.current);
@@ -21,6 +21,7 @@ export default function Weather() {
     setWind(response.data.wind.speed);
     setIcon(<img alt="icon" src={response.data.condition.icon_url} />);
     setCity();
+    setDate();
     setReady(true);
   }
 
@@ -51,7 +52,9 @@ export default function Weather() {
           <h2>{city}</h2>
           <p>
             <ul>
-              <li> Wednesday 7:00</li>
+              <li>
+                <getDate date={setDate} />
+              </li>
               <li>Descpription:{description}</li>
             </ul>
           </p>
