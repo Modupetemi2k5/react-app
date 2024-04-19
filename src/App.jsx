@@ -7,10 +7,12 @@ function App() {
   return (
     <div className="weather-app">
       <h1>Weather-App</h1>
-      <Weather />
+      <Weather defaultCity="New york" />
 
       <footer>
+        {" "}
         <p>
+          {" "}
           This project was code by{" "}
           <a
             href="mailto:moodupetemi2k5@gmail"
@@ -27,7 +29,7 @@ function App() {
             rel="noreferrer"
           >
             {" "}
-            Netlify
+            Github
           </a>
           Hosted on
           <a href="netlify" target="_blank" rel="noreferrer">
