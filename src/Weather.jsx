@@ -73,7 +73,9 @@ export default function Weather(props) {
           city={city}
           date={date}
           desc={description}
-        />
+        />{" "}
+    
+
       </div>
     );
   } else {

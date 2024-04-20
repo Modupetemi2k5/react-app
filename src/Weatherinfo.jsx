@@ -1,9 +1,8 @@
 import React from "react";
-import getDate from "./getDate";
 
 export default function Weather(props) {
   return (
-    <div className="infomation">
+    <div className="information">
       <div className="des-dat">
         {" "}
         <h2>{props.city}</h2>
