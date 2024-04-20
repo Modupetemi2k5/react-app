@@ -24,7 +24,7 @@ export default function Weather(props) {
           <span className="cent">c</span>
         </div>
 
-        <div className="col-6">
+        < div className="col-6">
           <ul>
             <li>Precipitation:{props.prec}</li>
             <li>Humidity:{props.humid}</li>
