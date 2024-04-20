@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function getDate(props) {
+export default function GetDate(props) {
   let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
   let day = days[props.date.getDay()];
   let minute = props.date.getMinute();

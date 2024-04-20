@@ -5,7 +5,7 @@ import axios from "axios";
 import Weatherinfo from "./Weatherinfo";
 
 export default function Weather(props) {
-  let [ready, setReady] = useState("false");
+  let [ready, setReady] = useState(false);
   let [temperature, setTemperature] = useState(" ");
   let [humidity, setHumidity] = useState("");
   let [precipitation, setPrecipitation] = useState("");

@@ -1,5 +1,5 @@
 import React from "react";
-
+import GetDate from "./getDate";
 export default function Weather(props) {
   return (
     <div className="information">
@@ -9,7 +9,7 @@ export default function Weather(props) {
         <p>
           <ul>
             <li>
-              <getDate date={props.date} />
+              <GetDate date={props.date} />
             </li>
             <li>Descpription:{props.desc}</li>
           </ul>
