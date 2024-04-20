@@ -1,5 +1,5 @@
 import React from "react";
-import GetDate from "./getDate";
+import GetDate from "./GetDate";
 export default function Weather(props) {
   return (
     <div className="information">
