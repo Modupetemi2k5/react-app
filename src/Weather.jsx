@@ -23,13 +23,12 @@ export default function Weather(props) {
     setPrecipitation();
     setWind(response.data.wind.speed);
     setIcon(<img alt="icon" src={response.data.condition.icon_url} />);
-    setCity();
-    setDate();
+    setCity(response.data.city);
+    setDate(new Date(response.data.time * 1000));
     setReady(true);
   }
 
   function search() {
-    let city = "new york";
     let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(getWeather);
@@ -74,11 +73,10 @@ export default function Weather(props) {
           date={date}
           desc={description}
         />{" "}
-    
-
       </div>
     );
   } else {
+    search();
     return "loading.....";
   }
 }

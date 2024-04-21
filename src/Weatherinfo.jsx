@@ -1,5 +1,6 @@
 import React from "react";
 import GetDate from "./GetDate";
+import GetTemperature from "./GetTemperature";
 export default function Weather(props) {
   return (
     <div className="information">
@@ -19,12 +20,11 @@ export default function Weather(props) {
       <div className="row">
         <div className="col-6">
           <img src={props.icon} alt={props.desc} width="60pv" />
-          <span className="temp">{props.temp}</span>
-          <span className="deg">°</span>
-          <span className="cent">c</span>
+          <GetTemperature temperature={props.temp} />
+          
         </div>
 
-        < div className="col-6">
+        <div className="col-6">
           <ul>
             <li>Precipitation:{props.prec}</li>
             <li>Humidity:{props.humid}</li>
