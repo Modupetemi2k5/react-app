@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function GetDate(props) {
-  let days = ["sun", "mon", " tue", "wed", "thu", "fri", "sat"];
+  let days = ["Sun", "Mon", " Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[props.date.getDay()];
   let minute = props.date.getMinutes();
   let hour = props.date.getHours();

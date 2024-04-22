@@ -19,7 +19,7 @@ export default function Weather(props) {
 
       <div className="row">
         <div className="col-6">
-          <img src={props.icon} alt={props.desc} width="60pv" />
+          <img src={props.icon} alt={props.desc} width="60px" />
           <GetTemperature temperature={props.temp} />
           
         </div>
