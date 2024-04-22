@@ -2,13 +2,18 @@ import React, { useState } from "react";
 
 export default function GetTemperature(props) {
   let [unit, setUnit] = useState("metric");
-  function showFahrhenite(event) {
+ 
+   function fahrenheit() {
+     return (props.temperature * 9) / 5 + 32;
+   }
+  function showFahrenheit(event) {
     event.preventDefault();
-    setUnit((props.temperature * 9) / 5 + 32);
+    setUnit("imperial");
   }
+ 
   function showCelcius(event) {
     event.preventDefault();
-    setUnit(props.temperature);
+    setUnit("metric");
   }
 
   if (unit === "metric") {
@@ -18,7 +23,7 @@ export default function GetTemperature(props) {
         <span className="deg">°</span>
         <span className="cent">
           C|
-          <a href="/" onClick={showFahrhenite}>
+          <a href="./" onClick={showFahrenheit}>
             F
           </a>
         </span>
@@ -28,10 +33,10 @@ export default function GetTemperature(props) {
   } else {
     return (
       <div>
-        <span className="temp">{props.temperature}</span>
+        <span className="temp">{fahrenheit()}</span>
         <span className="deg">°</span>
         <span className="cent">
-          <a href="/" onClick={showCelcius}>
+          <a href="./" onClick={showCelcius}>
             {" "}
             C
           </a>
