@@ -27,7 +27,6 @@ export default function GetTemperature(props) {
             F
           </a>
         </span>
-        |
       </div>
     );
   } else {
@@ -38,11 +37,10 @@ export default function GetTemperature(props) {
         <span className="cent">
           <a href="./" onClick={showCelcius}>
             {" "}
-            C
+            C|
           </a>
-          | F
+           F
         </span>
-        |
       </div>
     );
   }

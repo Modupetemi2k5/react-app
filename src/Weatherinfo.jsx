@@ -18,10 +18,9 @@ export default function Weather(props) {
       </div>
 
       <div className="row">
-        <div className="col-6">
-          <img src={props.icon} alt={props.desc} width="60px" />
+        <div className="col-6  temp-img">
+          <img src={props.icon} alt={props.desc} width="80px" />
           <GetTemperature temperature={props.temp} />
-          
         </div>
 
         <div className="col-6">
