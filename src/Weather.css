@@ -24,17 +24,22 @@ li {
 }
 
 .cent {
-    font-size: 25px;
+    font-size: 20px;
     position: relative;
-    top: -25px;
+    top: -15px;
 }
 
 .deg {
     font-size: 25px;
     position: relative;
-    top: -25px;
+    top: -10px;
 }
 
 .temp-img {
     display: flex;
+}
+
+img {
+    position: relative;
+    bottom: -20px;
 }
