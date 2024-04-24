@@ -6,7 +6,7 @@ export default function Weather(props) {
     <div className="information">
       <div className="des-dat">
         {" "}
-        <h2> {props.city}</h2>
+        <h2>{props.city}</h2>
         <p>
           <ul>
             <li>
