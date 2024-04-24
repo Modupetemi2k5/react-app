@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./Weather.css";
 import axios from "axios";
 import Weatherinfo from "./Weatherinfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   let [ready, setReady] = useState(false);
@@ -73,6 +74,7 @@ export default function Weather(props) {
           date={date}
           desc={description}
         />{" "}
+        <WeatherForecast />
       </div>
     );
   } else {
