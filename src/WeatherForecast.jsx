@@ -27,7 +27,7 @@ export default function WeatherForecast(props) {
     let city = "new york";
     let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-    let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lat=38.71667&lon=-9.13333&key=${apikey}&units=metric`;
+    let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lat=38.71667&lon=-9.13333&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(getForecast);
   } else {
     return (
