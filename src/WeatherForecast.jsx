@@ -3,38 +3,35 @@ import "./WeatherForecast.css";
 import axios from "axios";
 export default function WeatherForecast(props) {
   const [forecast, setForecast] = useState("");
-  const [notready, setNotready] = useState(false);
+  const [ready, setReady] = useState(false);
+
   function getForecast(response) {
     console.log(response.data);
     setForecast({
-      temperature: response.data.temperature.current,
-      humidity: response.data.temperature.humidity,
-      description: response.data.condition.description,
+      temperaturemax: response.data.daily[0].temperature.max,
+      temperaturemin: response.data.daily[0].temperature.min,
+      humidity: response.data.daily[0].temperature.humidity,
+      description: response.data.daily[0].condition.description,
       icon: (
         <img
-          src={response.data.condition.icon_url}
-          alt={response.data.condition.description}
+          src={response.data.daily[0].condition.icon_url}
+          alt={response.data.daily[0].condition.description}
         />
       ),
-      wind: response.data.wind.speed,
+      wind: response.data.daily[0].wind.speed,
       city: response.data.city,
-      time: new date(response.data.time * 1000),
-      ready: true,
+      time: response.data.daily[0].time,
     });
+    setReady(true);
   }
-  if (notready) {
-    return;
-    let city = "new york";
-    let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-    let apiUrl2 = `https://api.shecodes.io/weather/v1/forecast?lat=38.71667&lon=-9.13333&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(getForecast);
-  } else {
+
+  if (ready) {
+    console.log(forecast);
     return (
       <div className="forecast">
         <div className="row">
           <div className="col">
-            <div className="forecastday">Thu</div>
+            <div className="forecastday">{forecast.time}</div>
             <div className="forecastimg">
               {" "}
               <img
@@ -45,12 +42,18 @@ export default function WeatherForecast(props) {
             </div>
             <div className="forecasttemp">
               {" "}
-              <span className="maxtemp">18°</span>
-              <span className="mintemp"> 10°</span>
+              <span className="maxtemp">{forecast.temperaturemax}</span>
+              <span className="mintemp"> {forecast.temperaturemin}</span>
             </div>
           </div>
         </div>
       </div>
     );
+  } else {
+    let city = "new york";
+    let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(getForecast);
+    return "fetching forecast.........";
   }
 }

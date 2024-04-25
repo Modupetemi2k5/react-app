@@ -17,7 +17,6 @@ export default function Weather(props) {
   let [date, setDate] = useState("");
 
   function getWeather(response) {
-    console.log(response.data);
     setTemperature(response.data.temperature.current);
     setHumidity(response.data.temperature.humidity);
     setDescription(response.data.condition.description);
