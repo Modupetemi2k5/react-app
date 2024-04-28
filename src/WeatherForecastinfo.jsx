@@ -12,8 +12,8 @@ export default function Day(props) {
   }
 
   function day() {
-    let date = new date(props.code.time);
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fr[", "Sat"];
+    let date =new date(props.code.time);
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let day = days[date.getDay()];
     return day;
   }

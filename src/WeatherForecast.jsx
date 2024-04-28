@@ -21,7 +21,7 @@ export default function WeatherForecast(props) {
       ),
       wind: response.data.daily[0].wind.speed,
       city: response.data.city,
-      time: response.data.daily[0].time,
+      time: response.data.daily[0].time*1000,
     });
     setReady(true);
   }
@@ -32,7 +32,7 @@ export default function WeatherForecast(props) {
       <div className="forecast">
         <div className="row">
           {forecast.map(function(dailyforecast,index) {
-            if (index <= 5) {
+            if (index <= 5){
               return (
                 <div className="col">
                   <WeatherForecastinfo code={dailyforecast} />
