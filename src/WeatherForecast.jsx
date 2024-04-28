@@ -30,24 +30,22 @@ export default function WeatherForecast(props) {
     console.log(forecast);
     return (
       <div className="forecast">
-        <div className="row">
-          {forecast.map(function(dailyforecast,index) {
-            if (index <= 5){
-              return (
+        < div className="row">
+          {forecast.map(function(dailyforecast,index){
+            if(index <= 5) {
+              return(
                 <div className="col">
                   <WeatherForecastinfo code={dailyforecast} />
                 </div>
               );
-            }
+            }else{return ("nil")}
           })}
         </div>
-      </div>
-    );
+      </div>)
   } else {
     let city = "new york";
     let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${encodeURIComponent(
-      city
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${encodeURIComponent(city
     )}&key=${apiKey}`;
     console.log(apiUrl);
     axios.get(apiUrl).then(getForecast);
