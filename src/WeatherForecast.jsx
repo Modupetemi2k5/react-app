@@ -9,8 +9,8 @@ export default function WeatherForecast(props) {
   function getForecast(response) {
     console.log(response.data);
     setForecast({
-      temperaturemax: response.data.daily[0].temperature.max,
-      temperaturemin: response.data.daily[0].temperature.min,
+      temperaturemax: response.data.daily[0].temperature.maximum,
+      temperaturemin: response.data.daily[0].temperature.minimum,
       humidity: response.data.daily[0].temperature.humidity,
       description: response.data.daily[0].condition.description,
       icon: (
