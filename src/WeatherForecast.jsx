@@ -2,36 +2,22 @@ import React, { useState } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
 import WeatherForecastinfo from "./WeatherForecastinfo";
-export default function WeatherForecast(props) {
+export default function WeatherForecast(props){
   const [forecast, setForecast] = useState("");
   const [ready, setReady] = useState(false);
 
   function getForecast(response) {
     console.log(response.data);
-    setForecast({
-      temperaturemax: response.data.daily[0].temperature.maximum,
-      temperaturemin: response.data.daily[0].temperature.minimum,
-      humidity: response.data.daily[0].temperature.humidity,
-      description: response.data.daily[0].condition.description,
-      icon: (
-        <img
-          src={response.data.daily[0].condition.icon_url}
-          alt={response.data.daily[0].condition.description}
-        />
-      ),
-      wind: response.data.daily[0].wind.speed,
-      city: response.data.city,
-      time: response.data.daily[0].time * 1000,
-    });
+    setForecast(response.data.daily);
     setReady(true);
   }
 
   if (ready) {
     console.log(forecast);
-    return (
+    return(
       <div className="forecast">
-        <div className="row">
-          {forecast.map(function (dailyforecast, index) {
+        < div className="row">
+          {forecast.map(function (dailyforecast, index){
             if (index <= 5) {
               return (
                 <div className="col">

@@ -1,18 +1,19 @@
 import React from "react";
 
 export default function Day(props) {
+  console.log(props);
   function maxTemp() {
-    let temperature = Math.round(props.code.temperaturemax);
-    return temperature;
+    let temperature = Math.round(props.code.temperature.maximum);
+    return `${temperature}°`;
   }
 
   function minTemp() {
-    let temperature = Math.round(props.code.temperaturemin);
-    return temperature;
+    let temperature = Math.round(props.code.temperature.minimum);
+    return `${temperature}°`;
   }
 
   function day() {
-    let date =new Date(props.code.time);
+    let date = new Date(props.code.time);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let day = days[date.getDay()];
     return day;
