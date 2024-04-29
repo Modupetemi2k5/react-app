@@ -5,15 +5,16 @@ import WeatherForecastinfo from "./WeatherForecastinfo";
 export default function WeatherForecast(props){
   const [forecast, setForecast] = useState("");
   const [ready, setReady] = useState(false);
-
-  useEffect
-
-  
+useEffect(() => {
+  setReady(false);
+},[props.city]);
+ 
   function getForecast(response) {
     console.log(response.data);
     setForecast(response.data.daily);
     setReady(true);
   }
+
 
   if (ready) {
     console.log(forecast);
