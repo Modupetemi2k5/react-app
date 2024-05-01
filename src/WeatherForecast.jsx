@@ -28,7 +28,7 @@ useEffect(() => {
                   <WeatherForecastinfo code={dailyforecast} />
                 </div>
               );
-            } 
+            } else{return <></>}
           })}
         </div>
       </div>
