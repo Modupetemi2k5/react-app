@@ -36,7 +36,7 @@ useEffect(() => {
   } else {
     let city = "new york";
     let apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${encodeURIComponent(
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${encodeURIComponent(props.
       city
     )}&key=${apiKey}`;
     console.log(apiUrl);
