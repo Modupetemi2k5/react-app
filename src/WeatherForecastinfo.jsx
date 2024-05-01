@@ -13,7 +13,7 @@ export default function Day(props) {
   }
 
   function day() {
-    let date = new Date(props.code.time);
+    let date = new Date(props.code.time*1000);
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let day = days[date.getDay()];
     return day;
@@ -24,7 +24,7 @@ export default function Day(props) {
       <div className="forecastday">{day()}</div>
       <div className="forecastimg">
         {" "}
-        <img src={props.code.icon} alt={props.code.description} width="60px" />
+        <img src={props.code.condition.icon_url} alt={props.code.condition.description} width="60px" />
       </div>
       <div className="forecasttemp">
         {" "}
